@@ -334,7 +334,7 @@ export default function Provenance() {
         
         <div className="reveal stagger-1">
           <ImageGallery images={[
-            { src: "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=800&auto=format&fit=crop&q=80", caption: "Healthy mango budding in Ratnagiri" },
+            { src: "https://images.unsplash.com/photo-1605027628030-9bb6f83535e6?w=800&auto=format&fit=crop&q=80", caption: "Healthy mango budding in Ratnagiri" },
             { src: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800&auto=format&fit=crop&q=80", caption: "Early morning spray at Devgad orchards" },
             { src: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&auto=format&fit=crop&q=80", caption: "Uniform flowering post Bud Jet application" },
             { src: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=800&auto=format&fit=crop&q=80", caption: "Farmer assessing crop quality in Sangli" }

@@ -171,19 +171,19 @@ export default function Collection({ setPage, setActiveProduct }) {
             </div>
 
             {/* Vault Right: Visual Card */}
-            <div className="w-full lg:w-1/2 relative flex justify-center">
+            <div className="w-full lg:w-1/2 relative flex flex-col items-center justify-center">
               <div className="w-[80%] max-w-sm md:max-w-md aspect-square rounded-full border border-warm-gold/20 p-6 md:p-12 animate-pulse duration-[4000ms]">
                 <div className="w-full h-full rounded-full overflow-hidden shadow-2xl border-2 border-warm-gold">
                   <img 
                     className="w-full h-full object-contain bg-white p-6" 
-                    src="/main product.png" 
+                    src="/main_product.png" 
                     alt="Bud Jet Product" 
                   />
                 </div>
               </div>
               
               {/* Floating Glassmorphic Details Card */}
-              <div className="absolute -bottom-8 left-0 md:-left-8 p-6 md:p-8 glass-card bg-white/10 border border-white/20 rounded-2xl max-w-xs backdrop-blur-xl shadow-2xl">
+              <div className="relative mt-[-30px] z-10 md:absolute md:-bottom-8 md:-left-8 p-6 md:p-8 glass-card bg-white/10 border border-white/20 rounded-2xl max-w-xs backdrop-blur-xl shadow-2xl mx-auto md:mx-0">
                 <p className="text-warm-gold font-label-bold text-[8px] md:text-[10px] mb-2 uppercase tracking-[0.2em] font-bold">New Product Launch</p>
                 <h4 className="text-lg md:text-xl font-headline-md font-bold text-white mb-2">Bud Jet — 1 Litre</h4>
                 <p className="text-xs text-white/70 mb-4 leading-relaxed">Organic Cytokinin 5000 PPM + Salt of Potash 10%. For Mango Crop.</p>

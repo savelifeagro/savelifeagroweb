@@ -30,12 +30,16 @@ export default function Navbar({ currentPage, setPage }) {
 
       <div className="px-6 md:px-container-padding flex justify-between items-center h-20 md:h-24 max-w-7xl mx-auto">
         {/* Left Side: Brand Logo and Search */}
-        <div className="flex items-center gap-4 lg:gap-6">
+        <div className="flex items-center gap-2 lg:gap-4">
           <button 
             onClick={() => handleNavClick('home')} 
-            className="flex items-center gap-3 flex-shrink-0 hover:opacity-85 transition-opacity"
+            className="flex items-center gap-0 md:gap-4 flex-shrink-0 hover:opacity-85 transition-opacity"
           >
-            <img src="/logo.png" alt="Save Life Agro Logo" className="h-16 md:h-20 w-auto object-contain drop-shadow-sm" />
+            <img 
+              src="/logo.png" 
+              alt="Save Life Agro Logo" 
+              className="h-28 md:h-36 w-auto object-contain drop-shadow-sm -my-8 md:-my-10 -ml-4 md:ml-0" 
+            />
             <span className="text-xl md:text-3xl font-headline-md font-bold text-deep-forest tracking-tight">
               Save Life Agro
             </span>
