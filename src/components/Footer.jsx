@@ -35,18 +35,7 @@ export default function Footer({ setPage }) {
             Trusted agricultural solutions for Indian farmers. Quality organic crop regulators and nutrients manufactured and marketed by Save Life Agro Products, Sangli.
           </p>
           
-          {/* Social Icons */}
-          <div className="flex gap-4 mb-8">
-            <a className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-forest transition-all" href="#facebook">
-              <span className="material-symbols-outlined text-sm">public</span>
-            </a>
-            <a className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-forest transition-all" href="#instagram">
-              <span className="material-symbols-outlined text-sm">alternate_email</span>
-            </a>
-            <a className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-forest transition-all" href="#pinterest">
-              <span className="material-symbols-outlined text-sm">share</span>
-            </a>
-          </div>
+
 
         </div>
 
@@ -104,9 +93,9 @@ export default function Footer({ setPage }) {
           </p>
         </div>
         <div className="flex gap-8 text-[9px] text-white/30 uppercase tracking-[0.2em]">
-          <a className="hover:text-white transition-colors" href="#privacy">Privacy Policy</a>
-          <a className="hover:text-white transition-colors" href="#terms">Terms of Service</a>
-          <a className="hover:text-white transition-colors" href="#accessibility">Accessibility</a>
+          <button className="hover:text-white transition-colors" onClick={() => handleNavClick('privacy')}>Privacy Policy</button>
+          <button className="hover:text-white transition-colors" onClick={() => handleNavClick('terms')}>Terms of Service</button>
+          <button className="hover:text-white transition-colors" onClick={() => handleNavClick('accessibility')}>Accessibility</button>
         </div>
       </div>
     </footer>

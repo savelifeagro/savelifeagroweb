@@ -9,13 +9,16 @@ import Distributor from './pages/Distributor';
 import NotFound from './pages/NotFound';
 import ProductDetails from './pages/ProductDetails';
 import Admin from './pages/Admin';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Accessibility from './pages/Accessibility';
 import WhatsAppButton from './components/WhatsAppButton';
 import { AdminProvider } from './context/AdminContext';
 
 function AppContent() {
   const [page, setPage] = useState(() => {
     const path = window.location.pathname.replace('/', '');
-    const validPages = ['home', 'products', 'story', 'journal', 'distributor', 'admin', 'product-details'];
+    const validPages = ['home', 'products', 'story', 'journal', 'distributor', 'admin', 'product-details', 'privacy', 'terms', 'accessibility'];
     if (path && validPages.includes(path)) return path;
     return 'home';
   });
@@ -94,6 +97,12 @@ function AppContent() {
         return <Journal />;
       case 'admin':
         return <Admin />;
+      case 'privacy':
+        return <Privacy />;
+      case 'terms':
+        return <Terms />;
+      case 'accessibility':
+        return <Accessibility />;
       case 'notfound':
         return <NotFound setPage={setPage} />;
       default:
