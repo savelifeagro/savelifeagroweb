@@ -172,7 +172,7 @@ export default function Collection({ setPage, setActiveProduct }) {
 
             {/* Vault Right: Visual Card */}
             <div className="w-full lg:w-1/2 relative flex flex-col items-center justify-center">
-              <div className="w-[80%] max-w-sm md:max-w-md aspect-square rounded-full border border-warm-gold/20 p-6 md:p-12 animate-pulse duration-[4000ms]">
+              <div className="w-[80%] max-w-sm md:max-w-lg lg:max-w-[580px] aspect-square rounded-full border border-warm-gold/20 p-6 md:p-12 animate-pulse duration-[4000ms]">
                 <div className="w-full h-full rounded-full overflow-hidden shadow-2xl border-2 border-warm-gold">
                   <img 
                     className="w-full h-full object-contain bg-white p-6" 
