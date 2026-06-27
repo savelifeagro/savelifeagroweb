@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
-import ProductComparisonTable from '../components/ProductComparisonTable';
 import { allProducts } from '../products';
 import { useAdmin } from '../context/AdminContext';
 
@@ -207,22 +206,6 @@ export default function Collection({ setPage, setActiveProduct }) {
             className="w-full h-auto object-contain block" 
           />
         </div>
-      </section>
-      {/* Comparison Table Section */}
-      <section className="py-16 md:py-24 px-6 md:px-container-padding max-w-7xl mx-auto border-t border-[#EADEC9]/50">
-        <div className="text-center mb-12">
-          <span className="text-label-bold font-label-bold text-primary tracking-[0.4em] mb-4 block font-bold text-xs uppercase">
-            Product Guide
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display-lg text-deep-forest leading-tight mb-4">
-            Compare Solutions
-          </h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto">
-            Find the right Save Life Agro product for your crop's specific needs and growth stage.
-          </p>
-        </div>
-        
-        <ProductComparisonTable />
       </section>
     </div>
   );
