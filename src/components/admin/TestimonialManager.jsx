@@ -129,7 +129,7 @@ export default function TestimonialManager() {
                   </div>
                   {editForm.image && (
                     <div className="w-16 h-16 shrink-0 bg-white border border-surface-container rounded-full overflow-hidden">
-                      <img src={editForm.image} alt="Preview" className="w-full h-full object-cover" />
+                      <img loading="lazy" decoding="async" src={editForm.image} alt="Preview" className="w-full h-full object-cover" />
                     </div>
                   )}
                 </div>
@@ -171,7 +171,7 @@ export default function TestimonialManager() {
                 <div className="flex justify-between items-start mb-3">
                   <div className="flex items-center gap-3">
                     {testimonial.image ? (
-                      <img src={testimonial.image} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" alt={testimonial.name} />
+                      <img loading="lazy" decoding="async" src={testimonial.image} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" alt={testimonial.name} />
                     ) : (
                       <div className="w-10 h-10 rounded-full bg-cream-foundation border border-outline-variant/30 flex items-center justify-center text-primary font-bold">
                         {testimonial.name.charAt(0)}

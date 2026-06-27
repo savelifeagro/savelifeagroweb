@@ -31,7 +31,7 @@ export default function ProductCard({ product, setPage, setActiveProduct }) {
       {/* Inner Image Container (Padded to 0 so photos fill completely) */}
       <div className="relative rounded-[28px] bg-[#F5EDE0] aspect-square flex items-center justify-center overflow-hidden mb-4 border border-[#E3D4BF]/40 p-0">
         
-        <img 
+        <img loading="lazy" decoding="async" 
           className="w-full h-full object-contain bg-white p-4 rounded-[28px] transition-transform duration-700 group-hover:scale-102" 
           src={product.image} 
           alt={product.name} 

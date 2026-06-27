@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import ImageGallery from '../components/ImageGallery';
 
 export default function Provenance() {
@@ -75,6 +76,10 @@ export default function Provenance() {
 
   return (
     <div className="bg-cream-foundation text-on-background overflow-x-hidden min-h-screen">
+      <Helmet>
+        <title>Our Story & Provenance | Save Life Agro</title>
+        <meta name="description" content="Discover the roots of Save Life Agro. Lab-tested formulations crafted for the unique needs of Indian agriculture." />
+      </Helmet>
       
       {/* Hero Section */}
       <header className="relative w-full h-[70vh] md:h-[90vh] flex items-center justify-center overflow-hidden z-10">
@@ -133,7 +138,7 @@ export default function Provenance() {
           <div className="col-span-12 lg:col-span-7 relative h-[450px] sm:h-[600px] lg:h-[700px] mt-8 lg:mt-0">
             {/* Top Right Background Image */}
             <div className="absolute top-0 right-0 w-[80%] h-[80%] rounded-2xl overflow-hidden shadow-xl border border-outline-variant/10 bg-white p-6">
-              <img 
+              <img loading="lazy" decoding="async" 
                 className="w-full h-full object-contain" 
                 src="/main product.png" 
                 alt="Bud Jet Product"
@@ -142,7 +147,7 @@ export default function Provenance() {
             
             {/* Bottom Left Foreground Image */}
             <div className="absolute bottom-4 left-0 w-[55%] h-[60%] rounded-2xl overflow-hidden shadow-2xl border-[6px] md:border-[8px] border-cream-foundation z-30">
-              <img 
+              <img loading="lazy" decoding="async" 
                 className="w-full h-full object-cover" 
                 src="/macro_crop_leaves.png" 
                 alt="Bud Jet Organic Growth Details"
@@ -190,7 +195,7 @@ export default function Provenance() {
       {/* Quote Banner */}
       <section className="relative h-[300px] md:h-[450px] overflow-hidden my-12">
         <div className="absolute inset-0 z-0">
-          <img 
+          <img loading="lazy" decoding="async" 
             alt="Mango orchard texture" 
             className="w-full h-full object-cover opacity-20 filter saturate-50" 
             src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200&auto=format&fit=crop&q=60"
@@ -244,7 +249,7 @@ export default function Provenance() {
           {regions.map((region) => (
             <div key={region.id} className="min-w-[280px] sm:min-w-[360px] md:min-w-[400px] flex-shrink-0 snap-start group">
               <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden mb-6 shadow-xl border border-outline-variant/15">
-                <img 
+                <img loading="lazy" decoding="async" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   src={region.image} 
                   alt={region.title} 
@@ -305,7 +310,7 @@ export default function Provenance() {
                 {/* Image */}
                 <div className="w-full md:w-[42%] reveal stagger-1">
                   <div className="rounded-xl overflow-hidden shadow-lg h-44 md:h-48 border border-outline-variant/15 hover:shadow-xl transition-all duration-300">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       className="w-full h-full object-cover" 
                       src={m.image} 
                       alt={m.title} 

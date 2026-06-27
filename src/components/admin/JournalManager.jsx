@@ -154,7 +154,7 @@ export default function JournalManager() {
                   </div>
                   {editForm.image && (
                     <div className="w-32 h-20 shrink-0 bg-white border border-surface-container rounded-lg overflow-hidden">
-                      <img src={editForm.image} alt="Preview" className="w-full h-full object-cover" />
+                      <img loading="lazy" decoding="async" src={editForm.image} alt="Preview" className="w-full h-full object-cover" />
                     </div>
                   )}
                 </div>
@@ -207,7 +207,7 @@ export default function JournalManager() {
             <div key={journal.id} className="border border-surface-container p-4 rounded-xl flex flex-col md:flex-row gap-4 items-start md:items-center justify-between hover:shadow-md transition-shadow bg-surface-container-lowest">
               <div className="flex gap-4 items-center w-full md:w-auto overflow-hidden">
                 <div className="w-24 h-16 shrink-0 rounded overflow-hidden bg-cream-foundation">
-                  {journal.image && <img src={journal.image} className="w-full h-full object-cover" alt="" />}
+                  {journal.image && <img loading="lazy" decoding="async" src={journal.image} className="w-full h-full object-cover" alt="" />}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">

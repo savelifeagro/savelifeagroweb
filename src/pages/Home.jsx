@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Magnet from '../components/Magnet';
 import ProductCard from '../components/ProductCard';
 import BeforeAfter from '../components/BeforeAfter';
@@ -93,6 +94,10 @@ export default function Home({ setPage, setActiveProduct }) {
 
   return (
     <div className="overflow-x-hidden">
+      <Helmet>
+        <title>Save Life Agro | Premium Organic Fertilizers</title>
+        <meta name="description" content="Discover Save Life Agro's highly effective organic fertilizers, growth promoters, and crop solutions for healthier yields." />
+      </Helmet>
       {/* Global Shader Background (Reference overlay) */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-10 bg-[radial-gradient(#3e8e4d_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
@@ -152,7 +157,7 @@ export default function Home({ setPage, setActiveProduct }) {
             <div className="flex md:hidden justify-center items-center relative w-full h-auto py-2 mb-[-10px] mt-[-25px]">
               <div className="relative z-10 flex flex-col items-center translate-y-[45px]">
                 <Magnet padding={80} strength={3}>
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src="/main_product.png" 
                     alt="Bud Jet Product Bottle" 
                     className="w-auto h-[275px] sm:h-[340px] object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)] origin-bottom rotate-[4deg]"
@@ -191,7 +196,7 @@ export default function Home({ setPage, setActiveProduct }) {
             {/* Floating Bottle */}
             <div className="relative z-10 flex flex-col items-center">
               <Magnet padding={150} strength={4}>
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/main_product.png" 
                   alt="Bud Jet Product Bottle" 
                   className="w-auto h-[380px] lg:h-[500px] object-contain drop-shadow-xl"
@@ -369,7 +374,7 @@ export default function Home({ setPage, setActiveProduct }) {
           <div className="relative reveal stagger-2 mt-8 lg:mt-0 flex justify-center">
             {/* Aspect container with specific rounding */}
             <div className="w-full max-w-md md:max-w-lg aspect-square rounded-[48px] md:rounded-[80px] overflow-hidden shadow-2xl border border-outline-variant/10">
-              <img 
+              <img loading="lazy" decoding="async" 
                 alt="Farmer Excellence" 
                 className="w-full h-full object-cover" 
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2G4iKDROFizSFGTXrwFxNnRNb3mBfJdJU5H7zLygtIpFrmPZbsOsskdsA5k-BE4F1Huxmed6U_cn_5YlA00Ybq7SJdFtezBpaxX4JEoDsgg4OR_CbDTbJRLPBvlHtNaUL0RFQlrZ1RKhdLJU7nKL3z8cEHalJ2kMf3LR5gWm9dvW0rZ7LYyizZc9S9qai6RIZGyqUrPsLMiordikhz1q1XhsRV4BI9zOfh1QE-TVb82JyGA_UUkv0_Zzqwu4DYcT8ntQoD0xokQ"
@@ -472,7 +477,7 @@ export default function Home({ setPage, setActiveProduct }) {
                 </div>
                 <div className="flex items-center gap-3">
                   {testimonial.image ? (
-                    <img src={testimonial.image} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" alt={testimonial.name} />
+                    <img loading="lazy" decoding="async" src={testimonial.image} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" alt={testimonial.name} />
                   ) : (
                     <div className="w-10 h-10 rounded-full bg-cream-foundation border border-outline-variant/30 flex items-center justify-center text-primary font-bold">
                       {testimonial.name.charAt(0)}
@@ -532,7 +537,7 @@ export default function Home({ setPage, setActiveProduct }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group bg-cream-foundation/30 rounded-[32px] border border-[#EADEC9]/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 reveal stagger-1">
               <div className="aspect-[4/3] overflow-hidden bg-cream-foundation/50 flex items-center justify-center">
-                <img 
+                <img loading="lazy" decoding="async" 
                   alt="Bud Jet Organic Cytokinin" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   src="/macro_crop_leaves.png" 
@@ -555,7 +560,7 @@ export default function Home({ setPage, setActiveProduct }) {
 
             <div className="group bg-cream-foundation/30 rounded-[32px] border border-[#EADEC9]/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 reveal stagger-2">
               <div className="aspect-[4/3] overflow-hidden bg-cream-foundation/50 flex items-center justify-center">
-                <img 
+                <img loading="lazy" decoding="async" 
                   alt="Bud Jet Potash Mineral" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   src="/modern_farming.png" 
@@ -578,7 +583,7 @@ export default function Home({ setPage, setActiveProduct }) {
 
             <div className="group bg-cream-foundation/30 rounded-[32px] border border-[#EADEC9]/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 reveal stagger-3">
               <div className="aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-6 relative">
-                <img 
+                <img loading="lazy" decoding="async" 
                   alt="Bud Jet Complete Bottle" 
                   className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700" 
                   src="/main product.png" 

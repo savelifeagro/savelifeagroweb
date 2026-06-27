@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import ProductCard from '../components/ProductCard';
 import { allProducts } from '../products';
 import { useAdmin } from '../context/AdminContext';
@@ -50,6 +51,10 @@ export default function Collection({ setPage, setActiveProduct }) {
 
   return (
     <div className="bg-cream-foundation text-on-surface font-body-md overflow-x-hidden min-h-screen">
+      <Helmet>
+        <title>All Products | Save Life Agro</title>
+        <meta name="description" content="Browse our complete collection of high-efficacy organic fertilizers and crop care solutions." />
+      </Helmet>
       {/* Editorial Header */}
       <header className="max-w-7xl mx-auto px-6 md:px-container-padding pt-16 md:pt-24 pb-8">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 md:gap-12">
@@ -173,7 +178,7 @@ export default function Collection({ setPage, setActiveProduct }) {
             <div className="w-full lg:w-1/2 relative flex flex-col items-center justify-center">
               <div className="w-[80%] max-w-sm md:max-w-lg lg:max-w-[580px] aspect-square rounded-full border border-warm-gold/20 p-6 md:p-12 animate-pulse duration-[4000ms]">
                 <div className="w-full h-full rounded-full overflow-hidden shadow-2xl border-2 border-warm-gold">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     className="w-full h-full object-contain bg-white p-6" 
                     src="/main_product.png" 
                     alt="Bud Jet Product" 
@@ -200,7 +205,7 @@ export default function Collection({ setPage, setActiveProduct }) {
       {/* Innovative Product Range Showcase Card */}
       <section className="py-12 md:py-16 bg-cream-foundation relative z-10 flex justify-center px-6 border-t border-[#EADEC9]/20">
         <div className="max-w-5xl w-full rounded-3xl overflow-hidden shadow-2xl border border-[#EADEC9]/50 bg-white transition-all duration-500 hover:shadow-3xl hover:scale-[1.01]">
-          <img 
+          <img loading="lazy" decoding="async" 
             src="/nourishing_growth_banner.jpg" 
             alt="Nourishing Growth Range" 
             className="w-full h-auto object-contain block" 

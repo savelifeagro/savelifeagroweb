@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useAdmin } from '../context/AdminContext';
 
 export default function Journal() {
@@ -38,13 +39,17 @@ export default function Journal() {
 
   return (
     <div className="bg-cream-foundation text-charcoal-text overflow-x-hidden min-h-screen">
+      <Helmet>
+        <title>Journal | Save Life Agro</title>
+        <meta name="description" content="Read our latest insights, agro-science updates, and success stories from farmers using Save Life Agro products." />
+      </Helmet>
       
       {/* Hero Cover Story */}
       <section className="px-6 md:px-container-padding pt-12 md:pt-16 mb-20 md:mb-section-gap max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Cover Image */}
           <div className="lg:col-span-7 relative overflow-hidden rounded-2xl shadow-2xl h-[400px] sm:h-[550px] md:h-[650px] lg:h-[716px] group border border-outline-variant/10">
-            <img 
+            <img loading="lazy" decoding="async" 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-103" 
               src={journals[0]?.image} 
               alt={journals[0]?.title}
@@ -127,7 +132,7 @@ export default function Journal() {
                   className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant/15 hover:-translate-y-2 hover:shadow-md transition-all duration-500"
                 >
                   <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-surface-container-low border-b border-surface-container/30">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" 
                       src={essay.image} 
                       alt={essay.title} 
@@ -227,7 +232,7 @@ export default function Journal() {
           <div className="relative w-full max-w-3xl bg-cream-foundation rounded-2xl shadow-2xl max-h-[85vh] overflow-y-auto custom-scrollbar border border-outline-variant/30 animate-in zoom-in-95 duration-300">
             {/* Header Image */}
             <div className="relative h-64 md:h-80 overflow-hidden">
-              <img className="w-full h-full object-cover" src={readingEssay.image} alt={readingEssay.title} />
+              <img loading="lazy" decoding="async" className="w-full h-full object-cover" src={readingEssay.image} alt={readingEssay.title} />
               <div className="absolute inset-0 bg-black/45 flex items-end p-6">
                 <div>
                   <span className="text-warm-gold text-[10px] tracking-widest font-label-bold font-bold block mb-1 uppercase">

@@ -146,7 +146,7 @@ export default function ProductManager() {
                   </div>
                   {editForm.image && (
                     <div className="w-20 h-20 shrink-0 bg-white border border-surface-container rounded-lg p-1">
-                      <img src={editForm.image} alt="Preview" className="w-full h-full object-contain" />
+                      <img loading="lazy" decoding="async" src={editForm.image} alt="Preview" className="w-full h-full object-contain" />
                     </div>
                   )}
                 </div>
@@ -230,7 +230,7 @@ export default function ProductManager() {
             <div key={product.id} className="border border-surface-container p-4 rounded-xl flex items-center justify-between hover:shadow-md transition-shadow bg-surface-container-lowest">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-white rounded-lg border border-surface-container p-1 flex items-center justify-center shrink-0">
-                  <img src={product.image} alt={product.name} className="max-w-full max-h-full object-contain" />
+                  <img loading="lazy" decoding="async" src={product.image} alt={product.name} className="max-w-full max-h-full object-contain" />
                 </div>
                 <div>
                   <h4 className="font-bold text-deep-forest">{product.name}</h4>

@@ -77,7 +77,7 @@ export default function BeforeAfter({ beforeImage, afterImage, beforeLabel = "Be
         }}
       >
         {/* Background (After) Image */}
-        <img 
+        <img loading="lazy" decoding="async" 
           src={afterImage} 
           alt={afterLabel} 
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
@@ -88,7 +88,7 @@ export default function BeforeAfter({ beforeImage, afterImage, beforeLabel = "Be
           className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
-          <img 
+          <img loading="lazy" decoding="async" 
             src={beforeImage} 
             alt={beforeLabel} 
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"

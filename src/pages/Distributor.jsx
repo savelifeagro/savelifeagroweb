@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useAdmin } from '../context/AdminContext';
 
 export default function Distributor() {
@@ -38,6 +39,10 @@ export default function Distributor() {
 
   return (
     <div className="bg-cream-foundation min-h-screen pt-24 pb-20 px-6 md:px-container-padding text-on-surface">
+      <Helmet>
+        <title>Become a Distributor | Save Life Agro</title>
+        <meta name="description" content="Partner with Save Life Agro. Join our network of successful distributors bringing premium organic fertilizers to Indian farmers." />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <span className="text-label-bold font-label-bold text-primary tracking-[0.4em] mb-4 block font-bold uppercase text-xs">

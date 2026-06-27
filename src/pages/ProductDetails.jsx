@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import FAQ from '../components/FAQ';
 import { useAdmin } from '../context/AdminContext';
 
@@ -31,6 +32,10 @@ export default function ProductDetails({ product: initialProduct, setPage }) {
 
   return (
     <div className="bg-cream-foundation min-h-screen pt-24 pb-20 px-6 md:px-container-padding text-on-surface">
+      <Helmet>
+        <title>{product.name} | Save Life Agro</title>
+        <meta name="description" content={product.description?.substring(0, 160) || `Buy ${product.name} from Save Life Agro.`} />
+      </Helmet>
       <div className="max-w-7xl mx-auto">
         <button 
           onClick={() => setPage('products')} 
@@ -43,7 +48,7 @@ export default function ProductDetails({ product: initialProduct, setPage }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-16">
           {/* Left Column: Image */}
           <div className="relative w-full aspect-square bg-white rounded-[40px] overflow-hidden border border-[#EADEC9]/80 shadow-sm group">
-            <img 
+            <img loading="lazy" decoding="async" 
               src={product.image} 
               alt={product.name} 
               className="absolute inset-0 w-full h-full object-cover animate-in fade-in zoom-in-95 duration-1000 group-hover:scale-105 transition-transform" 

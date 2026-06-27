@@ -23,7 +23,7 @@ export default function ImageGallery({ images }) {
             onClick={() => setSelectedImage(img)}
             className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer border border-[#EADEC9]/30 shadow-sm hover:shadow-xl transition-all duration-300"
           >
-            <img 
+            <img loading="lazy" decoding="async" 
               src={img.src} 
               alt={img.alt || `Gallery image ${index + 1}`}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -57,7 +57,7 @@ export default function ImageGallery({ images }) {
             className="relative flex flex-col items-center justify-center w-full max-w-6xl animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
+            <img loading="lazy" decoding="async" 
               src={selectedImage.src}
               alt={selectedImage.alt || 'Enlarged image'}
               className="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-lg shadow-2xl"
