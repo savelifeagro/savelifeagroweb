@@ -12,6 +12,10 @@ export default function Home({ setPage, setActiveProduct }) {
 
   const { products: productsList, testimonials } = useAdmin();
 
+  // Filter for featured products, fallback to all if none are featured yet
+  const featuredProducts = productsList.filter(p => p.featuredOnHome);
+  const displayProducts = featuredProducts.length > 0 ? featuredProducts : productsList;
+
 
 
   const scroll = (direction) => {
@@ -291,7 +295,7 @@ export default function Home({ setPage, setActiveProduct }) {
               onScroll={handleScroll}
               className="flex gap-6 overflow-x-auto no-scrollbar py-6 px-4 w-full snap-x snap-mandatory"
             >
-              {[...productsList, ...productsList, ...productsList].map((product, idx) => (
+              {[...displayProducts, ...displayProducts, ...displayProducts].map((product, idx) => (
                 <ProductCard 
                   key={`${product.id}-loop-${idx}`} 
                   product={product} 

@@ -33,6 +33,7 @@ export default function ProductManager() {
       applicationStage: '',
       compatibility: '',
       description: '',
+      featuredOnHome: false,
       sizes: [{ size: '1L', price: 0 }]
     });
   };
@@ -62,10 +63,10 @@ export default function ProductManager() {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setEditForm((prev) => ({
       ...prev,
-      [name]: name === 'price' ? Number(value) : value,
+      [name]: type === 'checkbox' ? checked : (name === 'price' ? Number(value) : value),
     }));
   };
 
@@ -198,6 +199,22 @@ export default function ProductManager() {
               <div className="md:col-span-2">
                 <label className="block text-xs font-label-bold uppercase text-on-surface-variant mb-1">Description</label>
                 <textarea name="description" value={editForm.description || ''} onChange={handleChange} rows="3" className="w-full px-3 py-2 border border-surface-container rounded-lg focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+              </div>
+
+              <div className="md:col-span-2 mt-2">
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input 
+                    type="checkbox" 
+                    name="featuredOnHome" 
+                    checked={editForm.featuredOnHome || false} 
+                    onChange={handleChange}
+                    className="w-5 h-5 text-primary rounded focus:ring-primary accent-primary"
+                  />
+                  <div>
+                    <span className="block text-sm font-bold text-deep-forest">Show on Home Screen</span>
+                    <span className="block text-xs text-on-surface-variant">Check this box to display this product in the scrolling carousel on the home page.</span>
+                  </div>
+                </label>
               </div>
             </div>
             
