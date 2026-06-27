@@ -37,7 +37,7 @@ export default function Navbar({ currentPage, setPage }) {
         <div className="flex items-center gap-1 lg:gap-4">
           <button 
             onClick={() => handleNavClick('home')} 
-            className="flex items-center gap-1 md:gap-4 flex-shrink-0 hover:opacity-85 transition-opacity focus:outline-none"
+            className="flex items-center gap-1 md:gap-4 flex-shrink-0 hover:opacity-85 transition-opacity focus:outline-none md:-ml-8 lg:-ml-12"
           >
             <img 
               src="/logo.png" 
