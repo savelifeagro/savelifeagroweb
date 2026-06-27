@@ -24,7 +24,7 @@ export default function ProductCard({ product, setPage, setActiveProduct }) {
 
   return (
     <div 
-      className="w-[280px] sm:w-[310px] md:w-[440px] max-w-[340px] md:max-w-[440px] mx-auto flex-shrink-0 flex flex-col justify-between transition-all duration-300 relative group snap-center pb-2 cursor-pointer"
+      className="w-[280px] sm:w-[310px] md:w-full max-w-[340px] md:max-w-[440px] mx-auto flex-shrink-0 flex flex-col justify-between transition-all duration-300 relative group snap-center pb-2 cursor-pointer"
       onClick={handleCardClick}
     >
       
