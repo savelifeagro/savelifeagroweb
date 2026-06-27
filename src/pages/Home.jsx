@@ -466,9 +466,18 @@ export default function Home({ setPage, setActiveProduct }) {
                     "{testimonial.quote}"
                   </p>
                 </div>
-                <div>
-                  <p className="font-label-bold text-xs uppercase tracking-wider font-bold text-deep-forest">{testimonial.name}</p>
-                  <p className="text-on-surface-variant text-[10px]">{testimonial.location}</p>
+                <div className="flex items-center gap-3">
+                  {testimonial.image ? (
+                    <img src={testimonial.image} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" alt={testimonial.name} />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-cream-foundation border border-outline-variant/30 flex items-center justify-center text-primary font-bold">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                  )}
+                  <div>
+                    <p className="font-label-bold text-xs uppercase tracking-wider font-bold text-deep-forest">{testimonial.name}</p>
+                    <p className="text-on-surface-variant text-[10px]">{testimonial.location}</p>
+                  </div>
                 </div>
               </div>
             ))}

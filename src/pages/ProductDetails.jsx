@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import FAQ from '../components/FAQ';
-import { allProducts } from '../products';
+import { useAdmin } from '../context/AdminContext';
 
 export default function ProductDetails({ product: initialProduct, setPage }) {
-  // Always try to get the freshest data from products.js in case of hot reloads or state staleness
-  const product = allProducts.find(p => p.id === initialProduct?.id) || initialProduct;
+  const { products } = useAdmin();
+  
+  // Always try to get the freshest data from Firebase context
+  const product = products.find(p => p.id === initialProduct?.id) || initialProduct;
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0]?.name);
 
   if (!product) {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useAdmin } from '../context/AdminContext';
 
 export default function Journal() {
+  const { journals } = useAdmin();
   const [activeCategory, setActiveCategory] = useState('all'); // all | agro-science | soil-vitality | sustainability | journey
   const [emailInput, setEmailInput] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -32,55 +34,7 @@ export default function Journal() {
     }
   };
 
-  const essays = [
-    {
-      id: 'bud-break-science',
-      category: 'agro-science',
-      tag: 'CROP SCIENCE',
-      title: 'The Physiology of Bud Break',
-      summary: 'A deep dive into how Organic Cytokinin 5000 PPM triggers cell division and uniform flowering in Kesar and Alphonso mango crops.',
-      body: 'In this investigation, we analyze the biological processes behind bud initiation. Flower bud differentiation is a crucial stage in mango cultivation. By applying organic cytokinin, we stimulate lateral bud development and cellular division. Combined with 10% potash, it reduces excess nitrogen, balancing plant vigor and promoting uniform flowering. Save Life Agro agronomists work with field data across Ratnagiri to refine application timing for maximum fruit setting.',
-      image: '/macro_crop_leaves.png'
-    },
-    {
-      id: 'soil-vitality-konkan',
-      category: 'soil-vitality',
-      tag: 'SOIL VITALITY',
-      title: 'Restoring Soil Nutrients in the Mango Belt',
-      summary: 'How potassium deficiency affects fruit size, weight, and color, and our methods to replenish soil vitality organically.',
-      body: 'Mango crops draw heavy amounts of potassium during fruit development. In coastal soils like Ratnagiri and Devgad, high rainfall leaches away vital minerals. Potash application is critical to balance soil composition. Our Soil Energizer formula helps release locked nutrients, promoting healthy root structures that absorb trace elements. Farmers using organic soil conditioners report improved crop resistance to weather extremes and better soil water retention.',
-      image: '/modern_farming.png'
-    },
-    {
-      id: 'sangli-to-orchards',
-      category: 'journey',
-      tag: 'DISTRIBUTOR NETWORK',
-      title: 'Connecting Sangli to Indian Mango Orchards',
-      summary: 'How Save Life Agro grew from a local Sangli formulation laboratory to a trusted brand serving thousands of farmers.',
-      body: 'Founded in Sangli, Maharashtra, Save Life Agro began with a simple mission: to provide high-efficacy organic agricultural products to local farmers. Today, our distributor network spans Maharashtra, Karnataka, Gujarat, and Goa. We coordinate directly with local dealers to ensure that fresh, lab-tested batches of Bud Jet reach farmers right before the bud differentiation season. This close-knit relationship ensures technical field support is always a phone call away.',
-      image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 'organic-horticulture',
-      category: 'sustainability',
-      tag: 'SUSTAINABILITY',
-      title: 'Sustainable Farming: The Future of Horticulture',
-      summary: 'Why organic farming formulations are key to preserving soil quality for future generations.',
-      body: 'Over-application of chemical nitrogen fertilizers has led to soil acidification and decreased microbial activity in many orchards. At Save Life Agro, we advocate for organic alternatives. Our products trigger the plant\'s natural hormonal pathways without leaving harmful chemical residues. By adopting organic plant growth regulators like Bud Jet, farmers build long-term sustainability, ensuring their land remains fertile and productive for generations to come.',
-      image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&auto=format&fit=crop&q=80'
-    },
-    {
-      id: 'potash-role-quality',
-      category: 'agro-science',
-      tag: 'NUTRIENT RESEARCH',
-      title: 'The Vital Role of Potash in Fruit Quality',
-      summary: 'Analyzing how potash aids in starch conversion and enzyme activation during the critical mango fruit setting phase.',
-      body: 'Potassium (supplied as Potash) acts as an activator for dozens of essential enzymes within plant tissues. It regulates water loss by controlling the opening and closing of stomata, facilitates the transport of sugars and starches from leaves to developing fruit, and plays a major role in nitrogen utilization. When combined with organic Cytokinin, it guarantees that the uniform blossoms transition into heavy, sweet, and uniform mangoes.',
-      image: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800&auto=format&fit=crop&q=80'
-    }
-  ];
-
-  const filteredEssays = essays.filter(e => activeCategory === 'all' || e.category === activeCategory);
+  const filteredEssays = journals.filter(e => activeCategory === 'all' || e.category === activeCategory);
 
   return (
     <div className="bg-cream-foundation text-charcoal-text overflow-x-hidden min-h-screen">
@@ -92,8 +46,8 @@ export default function Journal() {
           <div className="lg:col-span-7 relative overflow-hidden rounded-2xl shadow-2xl h-[400px] sm:h-[550px] md:h-[650px] lg:h-[716px] group border border-outline-variant/10">
             <img 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-103" 
-              src={essays[0].image} 
-              alt={essays[0].title}
+              src={journals[0]?.image} 
+              alt={journals[0]?.title}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep-forest/60 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
@@ -101,7 +55,7 @@ export default function Journal() {
                 FEATURE STORY
               </span>
               <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display-lg leading-[0.95] tracking-tighter max-w-lg font-bold">
-                {essays[0].title}
+                {journals[0]?.title}
               </h2>
             </div>
           </div>
@@ -109,16 +63,16 @@ export default function Journal() {
           {/* Cover Description */}
           <div className="lg:col-span-5 flex flex-col justify-center lg:pl-8 reveal">
             <span className="text-label-bold font-label-bold text-warm-gold tracking-[0.25em] mb-4 block font-bold text-xs uppercase">
-              {essays[0].tag}
+              {journals[0]?.tag}
             </span>
             <p className="text-xl md:text-3xl font-headline-md text-charcoal-text leading-snug mb-6 font-bold">
-              {essays[0].summary}
+              {journals[0]?.summary}
             </p>
             <p className="text-xs md:text-sm text-on-surface-variant/80 mb-10 leading-relaxed max-w-md">
               In this volume, our agronomy research team sits down to discuss how organic hormones and key active minerals combine to trigger healthy bud formation.
             </p>
             <button 
-              onClick={() => setReadingEssay(essays[0])}
+              onClick={() => setReadingEssay(journals[0])}
               className="w-fit bg-deep-forest hover:bg-primary text-white px-8 py-4.5 rounded-full text-xs font-label-bold font-bold hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-3 tracking-widest uppercase cursor-pointer"
             >
               READ ESSAY <span className="material-symbols-outlined text-[16px]">north_east</span>
@@ -210,7 +164,7 @@ export default function Journal() {
             
             {/* Tiny Featured Banner */}
             <div 
-              onClick={() => setReadingEssay(essays[3])}
+              onClick={() => setReadingEssay(journals[3])}
               className="group cursor-pointer bg-deep-forest text-cream-foundation p-6 rounded-2xl hover:shadow-xl transition-all duration-500 flex flex-col gap-4 border border-outline-variant/10"
             >
               <span className="text-[9px] font-label-bold text-warm-gold tracking-widest uppercase font-bold">Featured Guide</span>

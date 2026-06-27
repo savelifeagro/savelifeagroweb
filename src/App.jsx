@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import AnnouncementBar from './components/AnnouncementBar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
@@ -21,8 +22,9 @@ function AppContent() {
   });
   const [activeProduct, setActiveProduct] = useState(null);
 
-  // Sync state changes to URL
+  // Sync state changes to URL and auto-scroll to top
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (page === 'home') {
       window.history.pushState({}, '', '/');
     } else {
@@ -272,6 +274,7 @@ function AppContent() {
       )}
 
       {/* Sticky Header Navigation */}
+      <AnnouncementBar />
       <Navbar currentPage={page} setPage={setPage} />
 
       {/* Main Screen Content */}
@@ -280,7 +283,7 @@ function AppContent() {
       </div>
 
       {/* Floating WhatsApp Button */}
-      <WhatsAppButton />
+      {page !== 'admin' && <WhatsAppButton />}
 
       {/* Foot Footer */}
       <Footer setPage={setPage} />

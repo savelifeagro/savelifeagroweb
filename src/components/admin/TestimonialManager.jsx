@@ -6,6 +6,7 @@ export default function TestimonialManager() {
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleEditClick = (testimonial) => {
     setEditingId(testimonial.id);
@@ -16,7 +17,7 @@ export default function TestimonialManager() {
   const handleAddClick = () => {
     setIsAdding(true);
     setEditingId(null);
-    setEditForm({ name: '', location: '', quote: '' });
+    setEditForm({ name: '', location: '', quote: '', image: '' });
   };
 
   const handleSave = () => {
@@ -29,9 +30,42 @@ export default function TestimonialManager() {
     setIsAdding(false);
   };
 
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this testimonial?")) {
+      deleteTestimonial(id);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+      
+      if (data.secure_url) {
+        setEditForm(prev => ({ ...prev, image: data.secure_url }));
+      }
+    } catch (error) {
+      console.error("Error uploading image: ", error);
+      alert("Failed to upload image.");
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -45,7 +79,7 @@ export default function TestimonialManager() {
           onClick={handleAddClick}
           className="bg-primary hover:bg-deep-forest text-white px-4 py-2 rounded-full text-sm font-bold transition-colors"
         >
-          + Add New
+          + Add Testimonial
         </button>
       </div>
       
@@ -76,6 +110,31 @@ export default function TestimonialManager() {
                   placeholder="e.g. Verified Farmer • Ratnagiri"
                 />
               </div>
+              
+              <div className="md:col-span-2">
+                <label className="block text-xs font-label-bold uppercase text-on-surface-variant mb-1">Farmer Image</label>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex-1">
+                    <input type="text" name="image" value={editForm.image || ''} onChange={handleChange} placeholder="Or paste image URL here..." className="w-full px-3 py-2 border border-surface-container rounded-lg focus:outline-none focus:ring-1 focus:ring-primary mb-2 text-sm" />
+                    <div className="relative">
+                      <input 
+                        type="file" 
+                        accept="image/*" 
+                        onChange={handleImageUpload} 
+                        disabled={isUploading}
+                        className="block w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 transition-colors disabled:opacity-50"
+                      />
+                      {isUploading && <span className="absolute right-4 top-2 text-xs font-bold text-primary animate-pulse">Uploading...</span>}
+                    </div>
+                  </div>
+                  {editForm.image && (
+                    <div className="w-16 h-16 shrink-0 bg-white border border-surface-container rounded-full overflow-hidden">
+                      <img src={editForm.image} alt="Preview" className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <div className="md:col-span-2">
                 <label className="block text-xs font-label-bold uppercase text-on-surface-variant mb-1">Review Quote</label>
                 <textarea
@@ -107,22 +166,33 @@ export default function TestimonialManager() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="border border-surface-container p-5 rounded-xl hover:shadow-md transition-shadow">
-              <div className="flex justify-between items-start mb-3">
-                <div>
-                  <h4 className="font-bold text-deep-forest">{testimonial.name}</h4>
-                  <p className="text-[10px] text-on-surface-variant uppercase tracking-wider">{testimonial.location}</p>
+            <div key={testimonial.id} className="border border-surface-container p-5 rounded-xl hover:shadow-md transition-shadow flex flex-col justify-between">
+              <div>
+                <div className="flex justify-between items-start mb-3">
+                  <div className="flex items-center gap-3">
+                    {testimonial.image ? (
+                      <img src={testimonial.image} className="w-10 h-10 rounded-full object-cover border border-outline-variant/30" alt={testimonial.name} />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full bg-cream-foundation border border-outline-variant/30 flex items-center justify-center text-primary font-bold">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                    )}
+                    <div>
+                      <h4 className="font-bold text-deep-forest leading-tight">{testimonial.name}</h4>
+                      <p className="text-[9px] text-on-surface-variant uppercase tracking-wider">{testimonial.location}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-1">
+                    <button onClick={() => handleEditClick(testimonial)} className="text-primary hover:text-deep-forest p-1">
+                      <span className="material-symbols-outlined text-[16px]">edit</span>
+                    </button>
+                    <button onClick={() => handleDelete(testimonial.id)} className="text-red-400 hover:text-red-600 p-1">
+                      <span className="material-symbols-outlined text-[16px]">delete</span>
+                    </button>
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  <button onClick={() => handleEditClick(testimonial)} className="text-primary hover:text-deep-forest">
-                    <span className="material-symbols-outlined text-sm">edit</span>
-                  </button>
-                  <button onClick={() => deleteTestimonial(testimonial.id)} className="text-red-400 hover:text-red-600">
-                    <span className="material-symbols-outlined text-sm">delete</span>
-                  </button>
-                </div>
+                <p className="text-sm italic text-charcoal-text leading-relaxed line-clamp-4">"{testimonial.quote}"</p>
               </div>
-              <p className="text-sm italic text-charcoal-text leading-relaxed">"{testimonial.quote}"</p>
             </div>
           ))}
         </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useAdmin } from '../context/AdminContext';
 
 export default function Distributor() {
+  const { addInquiry } = useAdmin();
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -10,19 +12,28 @@ export default function Distributor() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', company: '', phone: '', region: '', message: '' });
-    }, 5000);
+    setIsSubmitting(true);
+    try {
+      await addInquiry(formData);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', company: '', phone: '', region: '', message: '' });
+      }, 5000);
+    } catch (error) {
+      console.error("Error submitting form", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -179,9 +190,10 @@ export default function Distributor() {
 
                 <button 
                   type="submit"
-                  className="w-full py-4 mt-2 bg-deep-forest hover:bg-primary text-white rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-md active:scale-[0.98]"
+                  disabled={isSubmitting}
+                  className={`w-full py-4 mt-2 ${isSubmitting ? 'bg-deep-forest/70' : 'bg-deep-forest hover:bg-primary'} text-white rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-md active:scale-[0.98]`}
                 >
-                  Submit Enquiry
+                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
                 </button>
               </form>
             )}
