@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useAdmin } from '../context/AdminContext';
 
 export default function Navbar({ currentPage, setPage }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { announcement } = useAdmin();
 
   const navLinks = [
     { id: 'home', label: 'Home' },
@@ -20,13 +22,15 @@ export default function Navbar({ currentPage, setPage }) {
   return (
     <nav className="sticky top-0 w-full z-50 bg-cream-foundation/80 backdrop-blur-xl border-b border-surface-container transition-all duration-500">
       {/* Promotional Bar */}
-      <div className="relative z-[60] bg-deep-forest text-white py-2 text-center text-[10px] uppercase tracking-[0.2em] font-label-bold">
-        <div className="overflow-hidden whitespace-nowrap">
-          <div className="inline-block animate-marquee">
-            100% Organic • Lab Tested • High Efficacy Agricultural Solutions • Trusted by Farmers Across Maharashtra • For Agriculture Use Only • MFG. By: Save Life Agro Products, Sangli.
+      {announcement?.enabled && (
+        <div className="relative z-[60] bg-deep-forest text-white py-2 text-center text-[10px] uppercase tracking-[0.2em] font-label-bold">
+          <div className="overflow-hidden whitespace-nowrap">
+            <div className="inline-block animate-marquee">
+              {announcement.text}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="px-6 md:px-container-padding flex justify-between items-center h-20 md:h-24 max-w-7xl mx-auto">
         {/* Left Side: Brand Logo and Search */}

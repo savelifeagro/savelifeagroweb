@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
-import AnnouncementBar from './components/AnnouncementBar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
@@ -274,7 +273,6 @@ function AppContent() {
       )}
 
       {/* Sticky Header Navigation */}
-      <AnnouncementBar />
       <Navbar currentPage={page} setPage={setPage} />
 
       {/* Main Screen Content */}

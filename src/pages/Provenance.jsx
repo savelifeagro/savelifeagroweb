@@ -69,7 +69,7 @@ export default function Provenance() {
       year: '2024',
       title: 'Trusted by Thousands',
       description: 'Save Life Agro now serves mango farmers across Maharashtra, Karnataka, Goa, and Gujarat, with consistent results in uniform budding and improved fruit formation.',
-      image: 'https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=600&auto=format&fit=crop&q=60'
+      image: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=600&auto=format&fit=crop&q=60'
     }
   ];
 

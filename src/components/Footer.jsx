@@ -97,7 +97,12 @@ export default function Footer({ setPage }) {
       </div>
 
       <div className="max-w-7xl mx-auto border-t border-white/10 mt-16 md:mt-24 pt-8 md:pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-[9px] text-white/30 uppercase tracking-[0.2em]">© 2026 Save Life Agro Products. All Rights Reserved.</p>
+        <div className="flex flex-col gap-2">
+          <p className="text-[9px] text-white/30 uppercase tracking-[0.2em]">© 2026 Save Life Agro Products. All Rights Reserved.</p>
+          <p className="text-[9px] text-white/30 uppercase tracking-[0.2em]">
+            Designed and developed by <a href="https://www.nebulasystems.in/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-white/20 underline-offset-4 font-bold">Nebula Systems</a>
+          </p>
+        </div>
         <div className="flex gap-8 text-[9px] text-white/30 uppercase tracking-[0.2em]">
           <a className="hover:text-white transition-colors" href="#privacy">Privacy Policy</a>
           <a className="hover:text-white transition-colors" href="#terms">Terms of Service</a>

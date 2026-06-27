@@ -183,7 +183,7 @@ export default function Collection({ setPage, setActiveProduct }) {
               </div>
               
               {/* Floating Glassmorphic Details Card */}
-              <div className="relative mt-[-30px] z-10 md:absolute md:-bottom-8 md:-left-8 p-6 md:p-8 glass-card bg-white/10 border border-white/20 rounded-2xl max-w-xs backdrop-blur-xl shadow-2xl mx-auto md:mx-0">
+              <div className="relative mt-[-30px] z-10 md:absolute md:-bottom-8 md:-left-8 p-6 md:p-8 bg-white/10 border border-white/20 rounded-2xl max-w-xs backdrop-blur-xl shadow-2xl mx-auto md:mx-0">
                 <p className="text-warm-gold font-label-bold text-[8px] md:text-[10px] mb-2 uppercase tracking-[0.2em] font-bold">New Product Launch</p>
                 <h4 className="text-lg md:text-xl font-headline-md font-bold text-white mb-2">Bud Jet — 1 Litre</h4>
                 <p className="text-xs text-white/70 mb-4 leading-relaxed">Organic Cytokinin 5000 PPM + Salt of Potash 10%. For Mango Crop.</p>
