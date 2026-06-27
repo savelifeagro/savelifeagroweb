@@ -40,30 +40,30 @@ export default function ImageGallery({ images }) {
       {/* Lightbox */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-in fade-in duration-300"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-8 animate-in fade-in duration-300"
           onClick={() => setSelectedImage(null)}
         >
           <button 
-            className="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-md transition-colors"
+            className="absolute top-4 right-4 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white backdrop-blur-md transition-colors z-[110]"
             onClick={(e) => {
               e.stopPropagation();
               setSelectedImage(null);
             }}
           >
-            <span className="material-symbols-outlined text-2xl">close</span>
+            <span className="material-symbols-outlined text-xl md:text-2xl">close</span>
           </button>
           
           <div 
-            className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center animate-in zoom-in-95 duration-300"
+            className="relative flex flex-col items-center justify-center w-full max-w-6xl animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             <img 
               src={selectedImage.src}
               alt={selectedImage.alt || 'Enlarged image'}
-              className="w-full h-full object-contain max-h-[85vh] rounded-lg shadow-2xl"
+              className="max-w-full max-h-[75vh] md:max-h-[85vh] object-contain rounded-lg shadow-2xl"
             />
             {selectedImage.caption && (
-              <p className="mt-6 text-white text-sm md:text-base font-body-md bg-black/50 px-6 py-2 rounded-full">
+              <p className="mt-4 md:mt-6 text-white text-xs md:text-base font-body-md bg-black/50 px-4 md:px-6 py-2 rounded-full text-center max-w-[90vw]">
                 {selectedImage.caption}
               </p>
             )}
