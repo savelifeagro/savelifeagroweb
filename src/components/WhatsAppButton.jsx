@@ -29,7 +29,7 @@ export default function WhatsAppButton() {
       {/* Sticky Bottom CTA for Mobile */}
       <div className="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] p-3 flex gap-3">
         <a 
-          href="tel:+919999999999" 
+          href="tel:+919822264529" 
           className="flex-1 bg-deep-forest text-white py-3 rounded-full flex items-center justify-center gap-2 font-bold text-sm"
         >
           <span className="material-symbols-outlined text-lg">call</span>

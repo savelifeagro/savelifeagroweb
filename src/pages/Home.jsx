@@ -171,8 +171,8 @@ export default function Home({ setPage, setActiveProduct }) {
               </button>
               <button
                 onClick={() => {
-                  const footer = document.querySelector('footer');
-                  if(footer) footer.scrollIntoView({ behavior: 'smooth' });
+                  const message = encodeURIComponent('Hi Save Life Agro, I would like to know more about your products.');
+                  window.open(`https://wa.me/919822264529?text=${message}`, '_blank');
                 }}
                 className="w-full sm:w-auto flex items-center justify-center text-white/80 hover:text-warm-gold bg-white/10 hover:bg-white/20 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 transition-all duration-300 font-bold"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', letterSpacing: '0.15em', textTransform: 'uppercase' }}
