@@ -63,7 +63,7 @@ function AppContent() {
     setFadeIntro(true);
     setTimeout(() => {
       setShowIntro(false);
-    }, 1000); // 1000ms transition fadeout
+    }, 500); // 500ms transition fadeout
   };
 
   // Auto-play and fade out the innovative loader after 3.5 seconds
@@ -71,7 +71,7 @@ function AppContent() {
     if (showIntro) {
       const timer = setTimeout(() => {
         handleIntroEnd();
-      }, 3500);
+      }, 1600);
       return () => clearTimeout(timer);
     }
   }, [showIntro]);
@@ -116,7 +116,7 @@ function AppContent() {
       {showIntro && (
         <div 
           onClick={handleIntroEnd}
-          className={`fixed inset-0 z-[99999] bg-[#FBF7F1] flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`fixed inset-0 z-[99999] bg-[#FBF7F1] flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             fadeIntro ? 'opacity-0 scale-[1.03] blur-md pointer-events-none' : 'opacity-100'
           }`}
         >
@@ -188,7 +188,7 @@ function AppContent() {
                 strokeDasharray="120"
                 strokeDashoffset="120"
                 className="loader-draw-vein"
-                style={{ animationDelay: '0.6s' }}
+                style={{ animationDelay: '0.3s' }}
               />
               <path
                 d="M 50,72 C 60,66 62,58 62,58"
@@ -199,7 +199,7 @@ function AppContent() {
                 strokeDasharray="120"
                 strokeDashoffset="120"
                 className="loader-draw-vein"
-                style={{ animationDelay: '0.6s' }}
+                style={{ animationDelay: '0.3s' }}
               />
               <path
                 d="M 50,57 C 38,51 35,42 35,42"
@@ -210,7 +210,7 @@ function AppContent() {
                 strokeDasharray="120"
                 strokeDashoffset="120"
                 className="loader-draw-vein"
-                style={{ animationDelay: '1.0s' }}
+                style={{ animationDelay: '0.5s' }}
               />
               <path
                 d="M 50,57 C 62,51 65,42 65,42"
@@ -221,7 +221,7 @@ function AppContent() {
                 strokeDasharray="120"
                 strokeDashoffset="120"
                 className="loader-draw-vein"
-                style={{ animationDelay: '1.0s' }}
+                style={{ animationDelay: '0.5s' }}
               />
               <path
                 d="M 50,42 C 42,37 40,28 40,28"
@@ -232,7 +232,7 @@ function AppContent() {
                 strokeDasharray="120"
                 strokeDashoffset="120"
                 className="loader-draw-vein"
-                style={{ animationDelay: '1.4s' }}
+                style={{ animationDelay: '0.7s' }}
               />
               <path
                 d="M 50,42 C 58,37 60,28 60,28"
@@ -243,7 +243,7 @@ function AppContent() {
                 strokeDasharray="120"
                 strokeDashoffset="120"
                 className="loader-draw-vein"
-                style={{ animationDelay: '1.4s' }}
+                style={{ animationDelay: '0.7s' }}
               />
 
               {/* Sparkle star at the top (represents cosmic Nebula element) */}
@@ -272,7 +272,7 @@ function AppContent() {
             <div 
               className="h-full bg-warm-gold" 
               style={{
-                animation: 'progressFill 3.2s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                animation: 'progressFill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards',
               }}
             />
           </div>
