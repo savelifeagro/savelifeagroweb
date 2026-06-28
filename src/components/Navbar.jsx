@@ -9,6 +9,7 @@ export default function Navbar({ currentPage, setPage }) {
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Products' },
     { id: 'story', label: 'Our Story' },
+    { id: 'gallery', label: 'Gallery' },
     { id: 'distributor', label: 'Partner with Us' },
     { id: 'journal', label: 'Journal' }
   ];

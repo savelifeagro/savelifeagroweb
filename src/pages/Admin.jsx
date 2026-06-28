@@ -4,6 +4,7 @@ import TestimonialManager from '../components/admin/TestimonialManager';
 import JournalManager from '../components/admin/JournalManager';
 import InquiriesViewer from '../components/admin/InquiriesViewer';
 import SettingsManager from '../components/admin/SettingsManager';
+import GalleryManager from '../components/admin/GalleryManager';
 import { useAdmin } from '../context/AdminContext';
 import { auth, googleProvider } from '../firebase';
 import { signInWithPopup, signOut } from 'firebase/auth';
@@ -129,6 +130,16 @@ export default function Admin() {
               </button>
 
               <button
+                onClick={() => setActiveTab('gallery')}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap ${
+                  activeTab === 'gallery' ? 'bg-primary text-white font-bold' : 'text-on-surface-variant hover:bg-cream-foundation hover:text-deep-forest'
+                }`}
+              >
+                <span className="material-symbols-outlined text-xl">collections</span>
+                Gallery
+              </button>
+
+              <button
                 onClick={() => setActiveTab('inquiries')}
                 className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl transition-all whitespace-nowrap ${
                   activeTab === 'inquiries' ? 'bg-primary text-white font-bold' : 'text-on-surface-variant hover:bg-cream-foundation hover:text-deep-forest'
@@ -167,6 +178,7 @@ export default function Admin() {
             {activeTab === 'products' && <ProductManager />}
             {activeTab === 'testimonials' && <TestimonialManager />}
             {activeTab === 'journals' && <JournalManager />}
+            {activeTab === 'gallery' && <GalleryManager />}
             {activeTab === 'inquiries' && <InquiriesViewer />}
             {activeTab === 'settings' && <SettingsManager />}
           </div>

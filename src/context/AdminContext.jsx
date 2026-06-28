@@ -79,6 +79,7 @@ export function AdminProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [journals, setJournals] = useState([]);
+  const [gallery, setGallery] = useState([]);
   const [inquiries, setInquiries] = useState([]);
   const [announcement, setAnnouncement] = useState({ text: 'Welcome to Save Life Agro!', enabled: false });
   const [adminUser, setAdminUser] = useState(null);
@@ -131,6 +132,16 @@ export function AdminProvider({ children }) {
       } else {
         setJournals(j);
       }
+    });
+    return unsub;
+  }, []);
+
+  // Fetch Gallery
+  useEffect(() => {
+    const unsub = onSnapshot(collection(db, 'gallery'), (snapshot) => {
+      const g = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      // Sort by newest first based on createdAt
+      setGallery(g.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
     });
     return unsub;
   }, []);
@@ -192,6 +203,25 @@ export function AdminProvider({ children }) {
     await deleteDoc(doc(db, 'journals', id));
   };
 
+  // ---- Gallery Mutators ----
+  const addGalleryImage = async (newImage) => {
+    const id = Date.now().toString();
+    await setDoc(doc(db, 'gallery', id), { ...newImage, id, createdAt: new Date().toISOString() });
+  };
+  const updateGalleryImage = async (updatedImage) => {
+    await setDoc(doc(db, 'gallery', updatedImage.id), updatedImage);
+  };
+  const deleteGalleryImage = async (id) => {
+    await deleteDoc(doc(db, 'gallery', id));
+  };
+  
+  const seedGallery = async (images) => {
+    for (const item of images) {
+      const id = Date.now().toString() + Math.random().toString(36).substring(7);
+      await setDoc(doc(db, 'gallery', id), { ...item, id });
+    }
+  };
+
   // ---- Inquiry Mutators ----
   const addInquiry = async (inquiryData) => {
     const id = Date.now().toString();
@@ -229,6 +259,11 @@ export function AdminProvider({ children }) {
       addJournal,
       updateJournal,
       deleteJournal,
+      gallery,
+      addGalleryImage,
+      updateGalleryImage,
+      deleteGalleryImage,
+      seedGallery,
       inquiries,
       addInquiry,
       deleteInquiry,

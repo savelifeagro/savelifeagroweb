@@ -12,6 +12,7 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "canvas-confetti": "^1.9.4",
+    "dotenv": "^17.4.2",
     "firebase": "^12.15.0",
     "framer-motion": "^12.42.0",
     "gsap": "^3.15.0",

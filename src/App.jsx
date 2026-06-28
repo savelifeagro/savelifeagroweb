@@ -9,6 +9,7 @@ import Distributor from './pages/Distributor';
 import NotFound from './pages/NotFound';
 import ProductDetails from './pages/ProductDetails';
 import Admin from './pages/Admin';
+import Gallery from './pages/Gallery';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Accessibility from './pages/Accessibility';
@@ -18,7 +19,7 @@ import { AdminProvider } from './context/AdminContext';
 function AppContent() {
   const [page, setPage] = useState(() => {
     const path = window.location.pathname.replace('/', '');
-    const validPages = ['home', 'products', 'story', 'journal', 'distributor', 'admin', 'product-details', 'privacy', 'terms', 'accessibility'];
+    const validPages = ['home', 'products', 'story', 'journal', 'distributor', 'admin', 'product-details', 'gallery', 'privacy', 'terms', 'accessibility'];
     if (path && validPages.includes(path)) return path;
     return 'home';
   });
@@ -95,6 +96,8 @@ function AppContent() {
         return <Distributor />;
       case 'journal':
         return <Journal />;
+      case 'gallery':
+        return <Gallery />;
       case 'admin':
         return <Admin />;
       case 'privacy':
