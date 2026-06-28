@@ -26,7 +26,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cream-foundation text-on-background pt-32 pb-24 px-6 md:px-12 lg:px-24">
+    <div className="min-h-screen bg-cream-foundation text-on-background pt-8 md:pt-12 pb-24 px-6 md:px-12 lg:px-24">
       <Helmet>
         <title>Our Results | Save Life Agro</title>
         <meta name="description" content="See the real-world results of Save Life Agro's organic fertilizers on crops like mangoes and pomegranates." />
