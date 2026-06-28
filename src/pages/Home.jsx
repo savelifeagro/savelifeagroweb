@@ -511,7 +511,7 @@ export default function Home({ setPage, setActiveProduct }) {
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             className="text-base sm:text-lg text-deep-forest font-bold tracking-wide"
           >
-            Husain Sayyad
+            Husen Sayyad
           </p>
           <p className="text-[9px] text-on-surface-variant uppercase tracking-widest font-bold mt-1">
             Founder, Save Life Agro Products

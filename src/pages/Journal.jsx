@@ -163,7 +163,7 @@ export default function Journal() {
                 "Our mission is simple: helping Indian farmers grow healthier crops that sustain both families and soil health."
               </blockquote>
               <p className="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">
-                — HUSAIN SAYYAD, FOUNDER
+                — HUSEN SAYYAD, FOUNDER
               </p>
             </div>
             

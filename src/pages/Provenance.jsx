@@ -57,7 +57,7 @@ export default function Provenance() {
     {
       year: '2018',
       title: 'The Idea Takes Root',
-      description: 'Founder Husain Sayyad, seeing mango farmers in Sangli struggle with poor bud formation and potash deficiency, began formulating an organic solution.',
+      description: 'Founder Husen Sayyad, seeing mango farmers in Sangli struggle with poor bud formation and potash deficiency, began formulating an organic solution.',
       image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&auto=format&fit=crop&q=60'
     },
     {
@@ -208,7 +208,7 @@ export default function Provenance() {
               "Healthy crops mean healthy families. That is why we do what we do."
             </h3>
             <p className="text-[10px] md:text-xs font-label-bold font-bold text-primary uppercase tracking-[0.4em]">
-              Husain Sayyad, Founder — Save Life Agro Products
+              Husen Sayyad, Founder — Save Life Agro Products
             </p>
           </div>
         </div>
