@@ -39,35 +39,61 @@ const Gallery = () => {
         </p>
 
         {loading ? (
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="bg-gray-300 animate-pulse rounded-lg break-inside-avoid" style={{ height: `${Math.floor(Math.random() * (400 - 200 + 1) + 200)}px` }}></div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[250px]">
+            {[...Array(12)].map((_, i) => {
+              const isLarge = i % 8 === 0;
+              const isWide = i % 8 === 4 || i % 8 === 5;
+              const isTall = i % 8 === 2 || i % 8 === 7;
+              
+              let spanClass = "col-span-1 row-span-1";
+              if (isLarge) spanClass = "col-span-2 row-span-2";
+              else if (isWide) spanClass = "md:col-span-2 col-span-2 row-span-1";
+              else if (isTall) spanClass = "col-span-1 row-span-2";
+              
+              return <div key={i} className={`bg-gray-200 animate-pulse rounded-2xl ${spanClass}`}></div>
+            })}
           </div>
         ) : (
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-            {images.map((img) => (
-              <motion.div
-                key={img.id}
-                layoutId={`img-${img.id}`}
-                whileHover={{ scale: 1.02 }}
-                className="relative cursor-pointer break-inside-avoid overflow-hidden rounded-lg group"
-                onClick={() => setSelectedImage(img)}
-              >
-                <img
-                  src={img.url}
-                  alt={img.caption || 'Crop result'}
-                  className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                  decoding="async"
-                />
-                {img.caption && (
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm font-medium">{img.caption}</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[250px]">
+            {images.map((img, i) => {
+              // Create dynamic bento grid pattern
+              const isLarge = i % 8 === 0;
+              const isWide = i % 8 === 4 || i % 8 === 5;
+              const isTall = i % 8 === 2 || i % 8 === 7;
+              
+              let spanClass = "col-span-1 row-span-1";
+              if (isLarge) spanClass = "col-span-2 row-span-2";
+              else if (isWide) spanClass = "md:col-span-2 col-span-2 row-span-1";
+              else if (isTall) spanClass = "col-span-1 row-span-2";
+
+              return (
+                <motion.div
+                  key={img.id}
+                  layoutId={`img-${img.id}`}
+                  whileHover={{ scale: 0.98 }}
+                  className={`relative cursor-pointer overflow-hidden rounded-2xl group shadow-sm hover:shadow-xl transition-all ${spanClass}`}
+                  onClick={() => setSelectedImage(img)}
+                >
+                  <img
+                    src={img.url}
+                    alt={img.caption || 'Crop result'}
+                    className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 drop-shadow-md text-4xl">
+                      zoom_in
+                    </span>
                   </div>
-                )}
-              </motion.div>
-            ))}
+                  {img.caption && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 md:p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white text-xs md:text-sm font-bold tracking-wide">{img.caption}</p>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         )}
 
