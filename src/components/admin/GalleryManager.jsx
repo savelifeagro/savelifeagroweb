@@ -73,9 +73,12 @@ export default function GalleryManager() {
     if (window.confirm("Seed the database with the initial 31 images? This might take a few seconds.")) {
       setSeeding(true);
       try {
-        const response = await fetch('/gallery-seed.json');
-        const data = await response.json();
-        await seedGallery(data);
+        const seedData = Array.from({ length: 31 }).map((_, i) => ({
+          url: `/gallery/result-${i + 1}.webp`,
+          caption: 'Real Results from the Field',
+          createdAt: new Date().toISOString()
+        }));
+        await seedGallery(seedData);
         alert("Gallery seeded successfully!");
       } catch(err) {
         alert("Error seeding gallery: " + err.message);
