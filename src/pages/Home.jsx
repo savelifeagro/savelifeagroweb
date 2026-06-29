@@ -107,7 +107,7 @@ export default function Home({ setPage, setActiveProduct }) {
         <div 
           className="absolute inset-0 w-full h-full object-cover z-0"
           style={{
-            backgroundImage: "url('/mango_orchard_bg.png')",
+            backgroundImage: "url('/hero1.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             animation: "kenBurns 20s ease-out forwards",
