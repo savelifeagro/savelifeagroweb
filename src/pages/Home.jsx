@@ -374,7 +374,7 @@ export default function Home({ setPage, setActiveProduct }) {
               <img loading="lazy" decoding="async" 
                 alt="Farmer Excellence" 
                 className="w-full h-full object-cover" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2G4iKDROFizSFGTXrwFxNnRNb3mBfJdJU5H7zLygtIpFrmPZbsOsskdsA5k-BE4F1Huxmed6U_cn_5YlA00Ybq7SJdFtezBpaxX4JEoDsgg4OR_CbDTbJRLPBvlHtNaUL0RFQlrZ1RKhdLJU7nKL3z8cEHalJ2kMf3LR5gWm9dvW0rZ7LYyizZc9S9qai6RIZGyqUrPsLMiordikhz1q1XhsRV4BI9zOfh1QE-TVb82JyGA_UUkv0_Zzqwu4DYcT8ntQoD0xokQ"
+                src="/gallery/result-1.webp"
               />
             </div>
             {/* Absolute badge */}
