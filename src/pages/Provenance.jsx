@@ -37,13 +37,13 @@ export default function Provenance() {
       id: 'maharashtra',
       location: 'RATNAGIRI, MAHARASHTRA',
       title: "Alphonso Mango Belt",
-      image: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=600&auto=format&fit=crop&q=60'
+      image: '/region1.webp'
     },
     {
       id: 'konkan',
       location: 'KONKAN COAST, MAHARASHTRA',
       title: 'Hapus & Kesar Orchards',
-      image: 'https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=600&auto=format&fit=crop&q=60'
+      image: '/region2.webp'
     },
     {
       id: 'sangli',
@@ -149,7 +149,7 @@ export default function Provenance() {
             <div className="absolute bottom-4 left-0 w-[55%] h-[60%] rounded-2xl overflow-hidden shadow-2xl border-[6px] md:border-[8px] border-cream-foundation z-30">
               <img loading="lazy" decoding="async" 
                 className="w-full h-full object-cover" 
-                src="/macro_crop_leaves.png" 
+                src="/story1.webp" 
                 alt="Bud Jet Organic Growth Details"
               />
             </div>
@@ -339,10 +339,10 @@ export default function Provenance() {
         
         <div className="reveal stagger-1">
           <ImageGallery images={[
-            { src: "https://images.unsplash.com/photo-1605027628030-9bb6f83535e6?w=800&auto=format&fit=crop&q=80", caption: "Healthy mango budding in Ratnagiri" },
-            { src: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=800&auto=format&fit=crop&q=80", caption: "Early morning spray at Devgad orchards" },
-            { src: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&auto=format&fit=crop&q=80", caption: "Uniform flowering post Bud Jet application" },
-            { src: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=800&auto=format&fit=crop&q=80", caption: "Farmer assessing crop quality in Sangli" }
+            { src: "/success1.webp", caption: "Healthy mango budding in Ratnagiri" },
+            { src: "/success2.webp", caption: "Early morning spray at Devgad orchards" },
+            { src: "/success3.webp", caption: "Uniform flowering post Bud Jet application" },
+            { src: "/success4.webp", caption: "Farmer assessing crop quality in Sangli" }
           ]} />
         </div>
       </section>
