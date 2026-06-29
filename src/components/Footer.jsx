@@ -67,11 +67,11 @@ export default function Footer({ setPage }) {
           <div className="space-y-6">
             <div>
               <p className="text-[10px] uppercase text-white/70 mb-1">Email Us</p>
-              <a href="mailto:savelifeagroproducts@yahoo.com" className="text-sm hover:text-warm-gold transition-colors">savelifeagroproducts@yahoo.com</a>
+              <a href="mailto:savelifeagro@gmail.com" className="text-sm hover:text-warm-gold transition-colors">savelifeagro@gmail.com</a>
             </div>
             <div>
               <p className="text-[10px] uppercase text-white/70 mb-1">Call Us</p>
-              <p className="text-sm">+91 9403594529</p>
+              <p className="text-sm">+91 98222 64529</p>
             </div>
             <div>
               <p className="text-[10px] uppercase text-white/70 mb-1">Address</p>

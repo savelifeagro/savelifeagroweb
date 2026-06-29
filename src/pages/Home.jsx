@@ -437,8 +437,8 @@ export default function Home({ setPage, setActiveProduct }) {
       {/* Before / After Comparison */}
       <section className="bg-white">
         <BeforeAfter 
-          beforeImage="/before.png" 
-          afterImage="/after.png"
+          beforeImage="/before.webp" 
+          afterImage="/after.webp"
           beforeLabel="Without Bud Jet"
           afterLabel="With Bud Jet"
         />
@@ -536,8 +536,8 @@ export default function Home({ setPage, setActiveProduct }) {
               <div className="aspect-[4/3] overflow-hidden bg-cream-foundation/50 flex items-center justify-center">
                 <img loading="lazy" decoding="async" 
                   alt="Bud Jet Organic Cytokinin" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  src="/macro_crop_leaves.png" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 object-center" 
+                  src="/cytokinin.webp" 
                 />
               </div>
               <div className="p-8">
@@ -559,8 +559,8 @@ export default function Home({ setPage, setActiveProduct }) {
               <div className="aspect-[4/3] overflow-hidden bg-cream-foundation/50 flex items-center justify-center">
                 <img loading="lazy" decoding="async" 
                   alt="Bud Jet Potash Mineral" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                  src="/modern_farming.png" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 object-center" 
+                  src="/potash.webp" 
                 />
               </div>
               <div className="p-8">
