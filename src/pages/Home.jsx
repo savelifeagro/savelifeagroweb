@@ -214,7 +214,14 @@ export default function Home({ setPage, setActiveProduct }) {
       {/* Standalone Responsive Trust Section */}
       <section className="bg-cream-foundation py-8 md:py-12 px-6 md:px-container-padding relative z-10 border-b border-[#EADEC9]/30">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6">
+            <div className="bg-white p-3 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 border border-[#EADEC9]/20 shadow-sm">
+              <span className="material-symbols-outlined text-primary text-2xl md:text-3xl">workspace_premium</span>
+              <div>
+                <p className="text-[9px] md:text-[10px] uppercase font-bold text-deep-forest tracking-wider">ISO 9001:2015</p>
+                <p className="text-[10px] md:text-xs text-on-surface-variant font-semibold">Certified Company</p>
+              </div>
+            </div>
             <div className="bg-white p-3 md:p-5 rounded-2xl flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 border border-[#EADEC9]/20 shadow-sm">
               <span className="material-symbols-outlined text-primary text-2xl md:text-3xl">verified</span>
               <div>
