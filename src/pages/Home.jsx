@@ -388,6 +388,59 @@ export default function Home({ setPage, setActiveProduct }) {
         </div>
       </section>
 
+      {/* ISO Certification Section */}
+      <section className="py-16 md:py-24 px-6 md:px-container-padding bg-deep-forest text-white relative z-10 overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+          <div className="flex-1 reveal stagger-1">
+            <span className="font-label-bold text-warm-gold text-xs uppercase tracking-[0.4em] mb-4 block font-bold">
+              🛡️ Certified Quality
+            </span>
+            <h2 className="font-headline-xl text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
+              ISO 9001:2015 Certified Company
+            </h2>
+            <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+              Save Life Agro Products operates under an ISO 9001 certified quality management system, reflecting our commitment to consistent product quality, customer satisfaction, and continuous improvement.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {[
+                "ISO 9001 Certified",
+                "Quality Management System",
+                "Customer Focused",
+                "Trusted Manufacturing Standards"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 group">
+                  <span className="material-symbols-outlined text-primary text-xl group-hover:scale-110 transition-transform">check_circle</span>
+                  <span className="text-sm font-medium tracking-wide">{item}</span>
+                </div>
+              ))}
+            </div>
+            <a 
+              href="/ISO 9001 SAVE LIFE AGRO PRODUCTS.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-warm-gold hover:bg-white text-deep-forest font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', letterSpacing: '0.15em', textTransform: 'uppercase' }}
+            >
+              View Certificate
+              <span className="material-symbols-outlined text-lg">open_in_new</span>
+            </a>
+          </div>
+          <div className="flex-1 flex justify-center lg:justify-end w-full reveal stagger-2 mt-8 lg:mt-0 relative">
+            <div className="w-full max-w-[320px] aspect-[3/4] bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rotate-3 hover:rotate-0 transition-transform duration-700 cursor-pointer group">
+               <div className="w-full h-full border-2 border-dashed border-deep-forest/20 rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden bg-cream-foundation/30">
+                 <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700" style={{ backgroundImage: "url('/mango_orchard_bg.png')", backgroundSize: 'cover' }}></div>
+                 <div className="w-20 h-20 bg-warm-gold/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                   <span className="material-symbols-outlined text-5xl text-primary">workspace_premium</span>
+                 </div>
+                 <h3 className="text-deep-forest font-display-lg text-2xl font-bold mb-3">ISO 9001:2015</h3>
+                 <p className="text-charcoal-text text-[10px] uppercase tracking-widest font-bold">Quality Management<br/>System</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Skincare Ritual Section */}
       <section className="py-16 md:py-20 px-6 md:px-container-padding bg-cream-foundation relative z-10 border-t border-[#EADEC9]/25">
         <div className="max-w-7xl mx-auto">
